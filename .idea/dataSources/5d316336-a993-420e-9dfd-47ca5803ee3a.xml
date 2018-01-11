@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="test_db_city_v2@localhost">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="4.7">
+    <root id="1"/>
+    <database id="2" parent="1" name="test_db_city_v2">
+      <ObjectId>16583</ObjectId>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <database id="3" parent="1" name="postgres">
+      <ObjectId>12373</ObjectId>
+    </database>
+    <role id="4" parent="1" name="emingazov">
+      <ObjectId>16393</ObjectId>
+      <Inherit>1</Inherit>
+      <CanLogin>1</CanLogin>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="5" parent="1" name="postgres">
+      <ObjectId>10</ObjectId>
+      <SuperRole>1</SuperRole>
+      <Inherit>1</Inherit>
+      <CreateRole>1</CreateRole>
+      <CreateDb>1</CreateDb>
+      <CanLogin>1</CanLogin>
+      <Replication>1</Replication>
+      <ConnectionLimit>-1</ConnectionLimit>
+      <BypassRls>1</BypassRls>
+    </role>
+    <role id="6" parent="1" name="tuser_1">
+      <ObjectId>16395</ObjectId>
+      <Inherit>1</Inherit>
+      <CanLogin>1</CanLogin>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="7" parent="1" name="tuser_2">
+      <ObjectId>16584</ObjectId>
+      <Inherit>1</Inherit>
+      <CanLogin>1</CanLogin>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <schema id="8" parent="2" name="public">
+      <ObjectId>2200</ObjectId>
+      <IntrospectionTimestamp>2018-01-11.12:40:31.054</IntrospectionTimestamp>
+      <IntrospectionStateNumber>767</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="9" parent="2" name="pg_catalog">
+      <ObjectId>11</ObjectId>
+    </schema>
+    <schema id="10" parent="2" name="pg_toast">
+      <ObjectId>99</ObjectId>
+    </schema>
+    <schema id="11" parent="2" name="pg_temp_1">
+      <ObjectId>11816</ObjectId>
+    </schema>
+    <schema id="12" parent="2" name="pg_toast_temp_1">
+      <ObjectId>11817</ObjectId>
+    </schema>
+    <schema id="13" parent="2" name="information_schema">
+      <ObjectId>12081</ObjectId>
+    </schema>
+    <sequence id="14" parent="8" name="cities">
+      <ObjectId>16606</ObjectId>
+      <StateNumber>765</StateNumber>
+    </sequence>
+    <sequence id="15" parent="8" name="city_defs">
+      <ObjectId>16614</ObjectId>
+      <StateNumber>765</StateNumber>
+    </sequence>
+    <table id="16" parent="8" name="city">
+      <ObjectId>16608</ObjectId>
+      <StateNumber>767</StateNumber>
+    </table>
+    <table id="17" parent="8" name="city_def">
+      <ObjectId>16616</ObjectId>
+      <StateNumber>767</StateNumber>
+    </table>
+    <column id="18" parent="16" name="city_id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>762</StateNumber>
+      <DefaultExpression>nextval(&apos;cities&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="19" parent="16" name="location">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>762</StateNumber>
+    </column>
+    <column id="20" parent="16" name="def_id">
+      <Position>3</Position>
+      <DataType>bigint|0</DataType>
+      <StateNumber>762</StateNumber>
+    </column>
+    <index id="21" parent="16" name="city_pkey">
+      <ObjectId>16612</ObjectId>
+      <ColNames>city_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="22" parent="16" name="city_pkey">
+      <ObjectId>16613</ObjectId>
+      <ColNames>city_id</ColNames>
+      <UnderlyingIndexName>city_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="23" parent="16" name="city_fk_city_def">
+      <ObjectId>16627</ObjectId>
+      <ColNames>def_id</ColNames>
+      <RefTableId>16616</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>city_def</RefTableName>
+      <RefKeyName>city_def_pkey</RefKeyName>
+      <RefColNames>def_id</RefColNames>
+    </foreign-key>
+    <column id="24" parent="17" name="def_id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>764</StateNumber>
+      <DefaultExpression>nextval(&apos;city_defs&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="25" parent="17" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>764</StateNumber>
+    </column>
+    <column id="26" parent="17" name="city_id">
+      <Position>3</Position>
+      <DataType>bigint|0</DataType>
+      <StateNumber>764</StateNumber>
+    </column>
+    <index id="27" parent="17" name="city_def_pkey">
+      <ObjectId>16620</ObjectId>
+      <ColNames>def_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="28" parent="17" name="city_def_pkey">
+      <ObjectId>16621</ObjectId>
+      <ColNames>def_id</ColNames>
+      <UnderlyingIndexName>city_def_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="29" parent="17" name="city_def_fk_city">
+      <ObjectId>16622</ObjectId>
+      <ColNames>city_id</ColNames>
+      <RefTableId>16608</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>city</RefTableName>
+      <RefKeyName>city_pkey</RefKeyName>
+      <RefColNames>city_id</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>
